@@ -7,19 +7,21 @@ int main()
   int t;cin>>t;
   while(t--)
   {
-    string arr;cin>>arr;
-    int n=arr.length();
-    int cnt=0; 
-    
-    for(int i=1;i<n;i++)
+    int n;cin>>n;
+    int arr[n];
+    unordered_map<int,int> mp;
+    bool mark[200005];
+    memset(mark,false,sizeof(mark));
+    int cnt=0;
+    for(int i=0;i<n;i++)
     {
-      if(arr[i]==arr[i-1] && 'a'<=arr[i]<='z')
-      {arr[i]='A';cnt++;}
-      else if(arr[i]==arr[i-2] && 'a'<=arr[i]<='z')
-      {arr[i]='A';cnt++;}
-    
+      cin>>arr[i]; 
+      if(!mark[arr[i]]){cnt++;mark[arr[i]]=true;}
+      else if(mark[arr[i]] && !mark[arr[i]+1])
+      {cnt++;
+      mark[arr[i]+1]=true;}
     }
-    cout<<cnt;
-    cout<<"\n";
+    cout<<cnt<<"\n";
+  
   }
 }  

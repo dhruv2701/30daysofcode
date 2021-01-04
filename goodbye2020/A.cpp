@@ -9,19 +9,26 @@ int main()
   {
     int n;cin>>n;
     int arr[n];
-    unordered_map<int,int> mp;
-    bool mark[200005];
-    memset(mark,false,sizeof(mark));
-    int cnt=0;
     for(int i=0;i<n;i++)
+    cin>>arr[i];
+    bool mark[51];
+    memset(mark,false,sizeof(mark));
+    
+    for(int i=1;i<n;i++)
     {
-      cin>>arr[i]; 
-      if(!mark[arr[i]]){cnt++;mark[arr[i]]=true;}
-      else if(mark[arr[i]] && !mark[arr[i]+1])
-      {cnt++;
-      mark[arr[i]+1]=true;}
+        int k = arr[i];
+        for(int j=i-1;j>=0;j--)
+        {
+           int ans = abs(k-arr[j]);
+           mark[ans]=true;
+        }
+    }
+    int cnt=0;
+    for(int i=1;i<=49;i++)
+    {
+        if(mark[i])
+        cnt++;
     }
     cout<<cnt<<"\n";
-  
   }
 }  
