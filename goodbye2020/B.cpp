@@ -7,7 +7,7 @@ int main()
   int t;cin>>t;
   while(t--)
   {
-    int n;cin>>n;
+    int n,k;cin>>n>>k;
     int arr[n];
     unordered_map<int,int> mp;
     bool mark[200005];

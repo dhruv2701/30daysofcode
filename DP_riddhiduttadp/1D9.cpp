@@ -5,18 +5,16 @@ using namespace std;
 #define pb push_back
 int dp[1000000];
 vector<int> v;
-int perfect(int n)
-{
+int perfect(int n) {
     if(n==0)return 0;
     if(n<0)return INT_MAX-1;
-    if(dp[n]!=-1)
-    return dp[n];
+    if(dp[n]!=-1)return dp[n];
     int mx=INT_MAX-1;
-    for(int i=0;i<v.size();i++)
+    for(int i=1;i*i<=n;i++)
     {
-        mx = min(1+perfect(n-v[i]),mx);
+        mx = min(1+perfect(n-(i*i)),mx);
     } 
-    return mx;
+    return dp[n] = mx;
 }
 int main() {
 	int n;cin>>n;
