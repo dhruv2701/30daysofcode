@@ -6,13 +6,17 @@ int main()
     while(t--){
         int n, k;cin>>n>>k;
         if(n==1 || k==1){cout<<k<<"\n";continue;}
-        if(n>k)
+        int m = k;
+        int z = 2;
+        while(n>m)
         {
-            k = (n%k==1)?k*((n/k)+1):k*(n/k);
+            m = k*z;
+            z++;
         }
+        cout<<m<<" ";
         int ans =1;
         while(1){
-            if((n*ans)<k)
+            if((n*ans)<m)
             ans++;
             else
             break;

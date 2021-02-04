@@ -6,10 +6,10 @@ int main()
     while(t--){
         int n, k;cin>>n>>k;
         if(n==1 || k==1){cout<<k<<"\n";continue;}
-        if(n>k)
-        {
-            k = (n%k==1)?k*((n/k)+1):k*(n/k);
+        if(n>k){
+            k = n%k==1 ? k*((n/k)+1) : k*(n/k);
         }
+        cout<<k<<" ";
         int ans =1;
         while(1){
             if((n*ans)<k)
